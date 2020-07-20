@@ -41,7 +41,7 @@ namespace ExamplePlugin
 		[SettingsItemAttribute(5, 1, 1, 10)]
 		protected SettingsItemInt NumberOfTargets = new SettingsItemInt("NumberOfTargets");
 
-		[SettingsItemAttribute(1f, 0.1f, 0.1f, 5)]
+		[SettingsItemAttribute(0.2f, 0.1f, 0.1f, 5)]
 		protected SettingsItemFloat Speed = new SettingsItemFloat("Speed");
 
 		[SettingsItemAttribute(1.4f, 0.1f, 0.4f, 5f)]
