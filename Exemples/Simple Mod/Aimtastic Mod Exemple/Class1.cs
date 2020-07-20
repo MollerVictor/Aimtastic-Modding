@@ -17,7 +17,6 @@ namespace ExamplePlugin
 			room.RoomSetting = new NewRoomSetting {
 				SceneName = "CustomGameModeTest",
 				DisplayName = "My Cústom Game Mode 123",
-				LevelIndex = -1,
 				ImageName = "360tracking",
 		};
 			room.CountdownStartTargetPrefab = ModHelper.Instance.GetPrefab("CountdownTarget");
