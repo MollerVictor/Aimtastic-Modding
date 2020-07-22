@@ -16,7 +16,7 @@ namespace ExamplePlugin
 			var room = ScriptableObject.CreateInstance(typeof(MyRoom)) as MyRoom;
 			room.RoomSetting = new NewRoomSetting {
 				SceneName = "CustomGameModeTest",
-				DisplayName = "My Cústom Game Mode 123",
+				DisplayName = "My Cústom Game Mode 123",    //This is the name of the gamemod, that gets shown in the menu
 				ImageName = "360tracking",
 		};
 			room.CountdownStartTargetPrefab = ModHelper.Instance.GetPrefab("CountdownTarget");
@@ -56,13 +56,6 @@ namespace ExamplePlugin
 		Vector3 _topRightSpawnCorner = new Vector3(6, 5, 3);
 
 		List<GameObject> _currentTargets = new List<GameObject>();
-
-
-		// Use this for initialization
-		void Start()
-		{
-			Restart();
-		}
 
 
 		protected override void OnKilledEnemy(Entity entity, BulletHitInfo bulletHitInfo)
@@ -148,6 +141,15 @@ namespace ExamplePlugin
 			}
 
 			_currentTargets.Add(target);
+		}
+
+		//This gets called when the gamemode get unloaded, so make sure you clean up any gameobjects you may have spawned
+		public override void OnCleanUp()
+		{
+			foreach (GameObject target in _currentTargets)
+			{
+				Destroy(target);
+			}
 		}
 
 		public override void OnTimeEnded()
